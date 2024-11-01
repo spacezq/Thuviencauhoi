@@ -5,13 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thư viện câu hỏi - Sử Ký Đất Việt</title>
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; }
-        .container { max-width: 800px; margin: 20px auto; }
-        h1 { text-align: center; color: #333; }
-        #searchBox { width: 100%; padding: 8px; }
-        .question-list { list-style-type: none; padding: 0; }
-        .question-item { margin: 10px 0; padding: 10px; background-color: #f8f9fa; border-radius: 5px; cursor: pointer; }
-        .question-item:hover { background-color: #e9ecef; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        #searchBox {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+        .question-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .question-item {
+            margin: 10px 0;
+            padding: 15px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s;
+            cursor: pointer;
+            font-size: 1em;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+        .question-item:hover {
+            background-color: #0056b3;
+            transform: scale(1.02);
+        }
+        .question-item:active {
+            transform: scale(0.98);
+        }
     </style>
 </head>
 <body>
