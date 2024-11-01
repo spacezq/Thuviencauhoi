@@ -67,11 +67,14 @@
         <input type="text" id="searchBox" placeholder="Tìm kiếm câu hỏi...">
         
         <ul id="questionList" class="question-list">
-            <!-- Danh sách câu hỏi -->
-            <li class="question-item" onclick="openQuestion('question1.html')">
+            <!-- Danh sách câu hỏi với data-id -->
+            <li class="question-item" data-id="1" onclick="openQuestion('question1.html')">
                1. Ai là vị vua đầu tiên của nhà Lý?
             </li>
-            <!-- Thêm các câu hỏi khác ở đây -->
+            <!-- Thêm các câu hỏi khác ở đây, nhớ sử dụng data-id -->
+            <!-- Ví dụ:
+            <li class="question-item" data-id="2" onclick="openQuestion('question2.html')">2. Tên của thủ đô hiện nay là gì?</li>
+            -->
         </ul>
     </div>
 
@@ -79,8 +82,12 @@
         document.getElementById('searchBox').addEventListener('input', function() {
             var filter = this.value.toLowerCase();
             var questions = document.querySelectorAll('.question-item');
+            
             questions.forEach(function(question) {
-                if (question.innerText.toLowerCase().includes(filter)) {
+                var questionText = question.innerText.toLowerCase();
+                var questionId = question.getAttribute('data-id');
+                
+                if (questionText.includes(filter) || questionId.includes(filter)) {
                     question.style.display = '';
                 } else {
                     question.style.display = 'none';
