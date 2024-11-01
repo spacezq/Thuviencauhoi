@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sử Ký Đất Việt</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .question {
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .answer, .info, .media {
+            display: none;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .active {
+            display: block;
+        }
+        #audioControl {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        #audioControl button {
+            margin-right: 10px;
+        }
+        #audioStatus {
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sử Ký Đất Việt</h1>
+        
+        <div id="audioControl">
+            <button onclick="toggleAudio()">Phát/Dừng Âm thanh</button>
+            <span id="audioStatus">Âm thanh đang tắt</span>
+        </div>
+
+        <div class="section">
+            <div class="question" onclick="toggleContent('answer')">
+                Câu hỏi: Ai là vị vua đầu tiên của nhà Lý?
+            </div>
+            <div id="answer" class="answer">
+                <p><strong>Đáp án:</strong> Lý Thái Tổ (Lý Công Uẩn)</p>
+                <p>Lý Công Uẩn, sau khi lên ngôi lấy niên hiệu là Lý Thái Tổ, là vị hoàng đế đầu tiên của nhà Lý, trị vì từ năm 1009 đến năm 1028.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <button onclick="toggleContent('info')">Thông tin thêm</button>
+            <button onclick="toggleContent('media')">Hình ảnh/Video</button>
+        </div>
+
+        <div id="info" class="info">
+            <h3>Thông tin về nhà Lý</h3>
+            <p>Nhà Lý (1009-1225) là một triều đại phong kiến trong lịch sử Việt Nam, kéo dài 216 năm với 9 đời vua. Triều đại này đánh dấu sự phát triển mạnh mẽ của văn hóa, kinh tế và quân sự của Đại Việt.</p>
+        </div>
+
+        <div id="media" class="media">
+            <h3>Hình ảnh minh họa</h3>
+            <img src="Tượng_Lý_Thái_Tổ.jpeg" alt="Lý Thái Tổ" style="max-width: 100%; height: auto;">
+        </div>
+    </div>
+
+    <audio id="backgroundAudio">
+        <source src="NhaLy.mp3" type="audio/mpeg">
+        Trình duyệt của bạn không hỗ trợ phát âm thanh.
+    </audio>
+
+    <script>
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        }
+
+        var audio = document.getElementById("backgroundAudio");
+        var audioStatus = document.getElementById("audioStatus");
+
+        function toggleAudio() {
+            if (audio.paused) {
+                audio.play();
+                audioStatus.textContent = "Âm thanh đang phát";
+            } else {
+                audio.pause();
+                audioStatus.textContent = "Âm thanh đang tắt";
+            }
+        }
+    </script>
+</body>
+</html>
