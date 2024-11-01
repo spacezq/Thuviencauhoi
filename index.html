@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thư viện câu hỏi - Sử Ký Đất Việt</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; }
+        .container { max-width: 800px; margin: 20px auto; }
+        h1 { text-align: center; color: #333; }
+        #searchBox { width: 100%; padding: 8px; }
+        .question-list { list-style-type: none; padding: 0; }
+        .question-item { margin: 10px 0; padding: 10px; background-color: #f8f9fa; border-radius: 5px; cursor: pointer; }
+        .question-item:hover { background-color: #e9ecef; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Thư viện câu hỏi</h1>
+        <input type="text" id="searchBox" placeholder="Tìm kiếm câu hỏi...">
+        
+        <ul id="questionList" class="question-list">
+            <!-- Danh sách câu hỏi -->
+            <li class="question-item" onclick="openQuestion('question1.html')">
+                Ai là vị vua đầu tiên của nhà Lý?
+            </li>
+            <!-- Thêm các câu hỏi khác ở đây -->
+        </ul>
+    </div>
+
+    <script>
+        document.getElementById('searchBox').addEventListener('input', function() {
+            var filter = this.value.toLowerCase();
+            var questions = document.querySelectorAll('.question-item');
+            questions.forEach(function(question) {
+                if (question.innerText.toLowerCase().includes(filter)) {
+                    question.style.display = '';
+                } else {
+                    question.style.display = 'none';
+                }
+            });
+        });
+
+        function openQuestion(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>
